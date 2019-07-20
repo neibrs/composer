@@ -1,0 +1,36 @@
+version: '3.1'
+networks:
+  frontend:
+    driver: ${NETWORKS_DRIVER}
+  backend:
+    driver: ${NETWORKS_DRIVER}
+volumes:
+  mariadb:
+    driver: ${VOLUMES_DRIVER}
+services:
+  drupal:
+    build: ./docker/drupal
+    volumes:
+      - ./neibers/web:/var/www/html
+    restart: always
+    expose:
+      - "9000"
+    environment:
+      XDEBUG_REMOTE_CONNECT_BACK: 0
+      XDEBUG_REMOTE_HOST: docker.for.mac.host.internal
+      XDEBUG_REMOTE_AUTOSTART: 1
+    networks:
+      - frontend
+      - backend
+
+  mariadb:
+    image: mariadb
+    ports:
+      - 3396:3306
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: test
+    networks:
+      - backend

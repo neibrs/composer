@@ -3,3 +3,7 @@
 .gitattributes
 .idea/
 composer.lock
+data
+.env
+docker/logs/
+
