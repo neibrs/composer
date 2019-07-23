@@ -5,8 +5,8 @@
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "",
-            "role": ""
+            "name": "John.nie",
+            "role": "Drupal developer"
         }
     ],
     "repositories": [
@@ -26,7 +26,6 @@
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.7.0",
-        "drupal/field_slideshow": "^3.0@beta",
         "drush/drush": "^9.0.0",
         "npm-asset/jcarousel": "^0.3.9",
         "npm-asset/jquery.cycle2": "^2.1",
@@ -74,6 +73,14 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
+        "merge-plugin": {
+            "include": [
+                "web/modules/neibers/composer.json"
+            ],
+            "recurse": true,
+            "replace": false,
+            "merge-extra": false
+        },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
@@ -97,6 +104,41 @@
         "installer-types": [
             "npm-asset",
             "bower-asset"
-        ]
+        ],
+        "patches": {
+            "drupal/core": {
+                "StringFormatter generates links in wrong language when linking to entity": "https://www.drupal.org/files/issues/2019-03-23/2648288-string-formatter-30.patch",
+                "Add a language will never import the translation for modules": "https://www.drupal.org/files/issues/2654322-translation-import-2.patch",
+                "datetime_range: Allow end date to be optional": "https://www.drupal.org/files/issues/2018-05-14/2794481-60.patch",
+                "EntityReferenceAutocompleteWidget getAutoCreateBundle unnecessarily requires target_bundles setting": "https://www.drupal.org/files/issues/2019-03-24/2821352-entity-reference-auto-create-12.patch",
+                "Patch: Can't create comments when comment is a base field": "https://www.drupal.org/files/issues/2855068-8_0.patch",
+                "Patch: Enable block contextual link": "https://www.drupal.org/files/issues/2019-03-24/2940015-seven-theme-10.patch",
+                "TypeError: Argument 1 passed to _editor_get_file_uuids_by_field() must implement interface Drupal\\\\Core\\\\Entity\\\\EntityInterface": "https://www.drupal.org/files/issues/2018-11-08/2974156-editor-typeerror-9.patch",
+                "Support third party settings for components within a section": "https://www.drupal.org/files/issues/2019-02-26/3015152-tps-5.patch",
+                "Blocks with fixed width elements can break multi-column Layout Builder layouts": "https://www.drupal.org/files/issues/2019-02-28/3028979.29.patch",
+                "Config entity label and other fields translation doesn't work": "https://www.drupal.org/files/issues/2019-02-17/config-entity-label-translation-3030949-16.patch",
+                "Could not update translation for an imported config": "https://www.drupal.org/files/issues/2019-03-18/3040979-updateConfigTranslations-2.patch",
+                "EntityReferenceLabelFormatter generates links in wrong language": "https://www.drupal.org/files/issues/2019-03-22/3042392-entity-reference-label-wrong-language-2.patch",
+                "The EntityOperations field plugin generate links in wrong language": "https://www.drupal.org/files/issues/2019-03-25/3043057-views-EntityOperations-language-5.patch",
+                "DateTimeComputed tries to compute from an empty value": "https://www.drupal.org/files/issues/2019-05-04/3052608-2.drupal.DateTimeComputed-tries-to-compute-from-an-empty-value.patch",
+                "Update configuration translations even if the configuration is created programmatically": "https://www.drupal.org/files/issues/2019-05-30/3058090-update-configuration-translation-2.patch"
+            },
+            "drupal/ajax_links_api": {
+                "No schema for ajax_links_api.admin_settings": "https://www.drupal.org/files/issues/2019-03-21/3015840-schema-2.patch"
+            },
+            "drupal/entity_print": {
+                "PDF generation errors with DomPDF due to drupalSettings": "https://www.drupal.org/files/issues/2018-05-03/entity_print-dompdf-2969184.patch"
+            },
+            "drupal/migrate_plus": {
+                "EntityGenerate: Provide multiple values will not process correctly": "https://www.drupal.org/files/issues/2018-05-25/2975266-values-2.patch"
+            },
+            "drupal/migrate_source_xls": {
+                "prepareColumns does not use the correct sheet_name defined by migration configuration": "https://www.drupal.org/files/issues/2019-03-23/2954462-sheet-name-3.patch",
+                "Needs support constants defined in source configuration": "https://www.drupal.org/files/issues/2019-03-23/2954477-constants-3.patch"
+            },
+            "drupal/reference_table_formatter": {
+                "Call to a member function buildMultiple() on null in EntityToTableRenderer.php": "https://www.drupal.org/files/issues/2866712-call-to-a-member-function-on-null-4.patch"
+            }
+        }
     }
 }

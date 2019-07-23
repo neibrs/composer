@@ -1,0 +1,3 @@
+[submodule "neibers/web/modules/neibers"]
+	path = neibers/web/modules/neibers
+	url = git@git.drupal.org:project/neibers.git
