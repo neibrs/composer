@@ -6,4 +6,5 @@ composer.lock
 data
 .env
 docker/logs/
+neibers/web/modules/neibers
 
