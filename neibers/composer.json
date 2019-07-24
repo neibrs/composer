@@ -130,7 +130,7 @@
                 "PDF generation errors with DomPDF due to drupalSettings": "https://www.drupal.org/files/issues/2018-05-03/entity_print-dompdf-2969184.patch"
             },
             "drupal/field_slideshow": {
-                "Use composer manage the libraries": "https://www.drupal.org/files/issues/2019-07-20/3069114-1.patch",
+                "Use composer manage the libraries": "https://www.drupal.org/files/issues/2019-07-20/3069114-1.patch"
             },
             "drupal/migrate_plus": {
                 "EntityGenerate: Provide multiple values will not process correctly": "https://www.drupal.org/files/issues/2018-05-25/2975266-values-2.patch"
